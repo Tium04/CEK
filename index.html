@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan SDN 04 Tiumang</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #2980b9, #6dd5fa);
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      margin: 0;
+    }
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      width: 250px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #2ecc71;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 26px;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .error {
+      color: #ff4d4d;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: auto;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PENGUMUMAN KELULUSAN</h1>
+    <h2>SDN 04 TIUMANG<br>TP. 2024/2025</h2>
+    <p>Silakan masukkan NISN Anda untuk melihat hasil kelulusan:</p>
+    <input type="text" id="nisnInput" placeholder="Contoh: 0123456789">
+    <br><br>
+    <button onclick="cekKelulusan()">CEK HASIL</button>
+    <div id="hasil" class="result"></div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "0122651512": "Aji Abdur Rozzaq",
+      "0135766635": "AKHMADINI",
+      "3139767007": "Akmal Saputra",
+      "0132413270": "Akmil Saputra",
+      "0122933191": "Andiko Saputra",
+      "0122894199": "EFAN AL FARO",
+      "0126705499": "Erlangga Dewanta",
+      "0129606692": "GEBY MUZDALIFAH",
+      "0136012605": "Gifran Silvano",
+      "0125723645": "Gilang Pradana",
+      "0126031319": "RAHMAT RAMADHAN"
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById("nisnInput").value.trim();
+      const hasil = document.getElementById("hasil");
+      if (dataSiswa[nisn]) {
+        hasil.innerHTML = `🎉 SELAMAT ANDA LULUS, <br><strong>${dataSiswa[nisn]}</strong> 🎓`;
+        hasil.className = "result";
+      } else {
+        hasil.innerHTML = "⚠️ NISN tidak ditemukan atau belum terdaftar.";
+        hasil.className = "result error";
+      }
+    }
+  </script>
+</body>
+</html>
